@@ -22,7 +22,7 @@ public class playerControl : MonoBehaviour
     private int extraJumps;
     public int extraJumpsValue;
     private Animator anim;
-
+    
     
 
     // Use this for initialization
@@ -38,6 +38,7 @@ public class playerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         playerPos = transform;
         moveInput = Input.GetAxisRaw("Horizontal");
@@ -52,7 +53,7 @@ public class playerControl : MonoBehaviour
         {
             Flip();
         }
-
+       
     }
     void Flip()
     {
@@ -61,8 +62,22 @@ public class playerControl : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && collision.gameObject.CompareTag("enemy"))
+        {
+            Destroy(collision.gameObject, .5f);
+        }
+    }
     void Update()
     {
+       
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            anim.SetTrigger("Hit");
+            
+        }
+       
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             anim.SetTrigger("takeOff");
