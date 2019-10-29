@@ -5,6 +5,8 @@ TextureImporter:
     21300000: stickman dash anim sprite sheet_0
     21300002: stickman dash anim sprite sheet_1
     21300004: stickman dash anim sprite sheet_2
+    21300006: stickman dash anim sprite sheet_3
+    21300008: stickman dash anim sprite sheet_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -128,13 +130,13 @@ TextureImporter:
         width: 1000
         height: 1250
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c45f186057c8cda4793b4dc2337e6bb3
+      spriteID: fae76ff76d1e830498c19331e7fcbca5
       vertices: []
       indices: 
       edges: []
@@ -148,13 +150,13 @@ TextureImporter:
         width: 1000
         height: 1250
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f915b9f272d88b347be2aeb6e4f59f6c
+      spriteID: b0a84b91c4d5f3e46a2a467b05c3b13f
       vertices: []
       indices: 
       edges: []
@@ -163,18 +165,58 @@ TextureImporter:
       name: stickman dash anim sprite sheet_2
       rect:
         serializedVersion: 2
-        x: 2000
+        x: 2006
         y: 0
         width: 1000
         height: 1250
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d77df1b5be144df4bb218e41ac053575
+      spriteID: 5335525a5ea41e7498154116824437c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stickman dash anim sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 1000
+        height: 1250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d075ea3dc2f02b3488b2c12a8708dbb8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stickman dash anim sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 1000
+        height: 1250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff98a67d6b0838e4cab76af437e9b610
       vertices: []
       indices: 
       edges: []

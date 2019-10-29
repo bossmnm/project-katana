@@ -22,8 +22,9 @@ public class playerControl : MonoBehaviour
     private int extraJumps;
     public int extraJumpsValue;
     private Animator anim;
-    
-    
+    private bool _isRunning;
+
+
 
     // Use this for initialization
     void Start()
@@ -77,7 +78,11 @@ public class playerControl : MonoBehaviour
             anim.SetTrigger("Hit");
             
         }
-       
+        if (Input.GetKeyDown(KeyCode.S) && _isRunning && isGrounded == true)
+        {
+            anim.SetTrigger("dash");
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             anim.SetTrigger("takeOff");
@@ -105,16 +110,19 @@ public class playerControl : MonoBehaviour
             rb.velocity = Vector2.up * jumpForce;
             
         }
-      
-        
-       
-        if (moveInput == 0) 
-        {
-            anim.SetBool("isRunning", false);
-        } else
-        {
-            anim.SetBool("isRunning", true);
-        }
 
+
+
+        
+        if (moveInput == 0)
+        {
+            _isRunning = false;
+
+        }
+        else
+        {
+            _isRunning = true;
+        }
+        anim.SetBool("isRunning", _isRunning);
     }
-}
+    }
