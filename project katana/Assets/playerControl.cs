@@ -23,7 +23,7 @@ public class playerControl : MonoBehaviour
     public int extraJumpsValue;
     private Animator anim;
     private bool _isRunning;
-
+    GameObject EnemyUponMe;
 
 
     // Use this for initialization
@@ -39,7 +39,7 @@ public class playerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         playerPos = transform;
         moveInput = Input.GetAxisRaw("Horizontal");
@@ -63,21 +63,32 @@ public class playerControl : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
-    private void OnCollisionStay2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && collision.gameObject.CompareTag("enemy"))
+        if (collision.gameObject.CompareTag("enemy"))
         {
-            Destroy(collision.gameObject, .5f);
+            EnemyUponMe = collision.gameObject;
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (EnemyUponMe == collision.gameObject)
+        {
+            EnemyUponMe = null;
+        }
+    }
+
     void Update()
     {
-       
+        
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             anim.SetTrigger("Hit");
-            
+            if (EnemyUponMe != null) { Destroy(EnemyUponMe, .5f); }
         }
+
         if (Input.GetKeyDown(KeyCode.S) && _isRunning && isGrounded == true)
         {
             anim.SetTrigger("dash");
