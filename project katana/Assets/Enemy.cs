@@ -7,7 +7,10 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float stoppingDistance;
     public float retreatDistance;
+    private float timeBtwShots;
+    public float startTimeBtwShots;
 
+    public GameObject projectile;
     public Transform player;
 
     // Use this for initialization
@@ -19,6 +22,7 @@ public class Enemy : MonoBehaviour
             {
                 player = playerObject.transform;
             }
+        timeBtwShots = startTimeBtwShots;
         
     }
 
@@ -37,6 +41,14 @@ public class Enemy : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
-
+        if( timeBtwShots <= 0)
+        {
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            timeBtwShots = startTimeBtwShots;
+        }
+        else
+        {
+            timeBtwShots -= Time.deltaTime;
+        }
     }
 }
