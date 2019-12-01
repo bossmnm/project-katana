@@ -24,7 +24,7 @@ public class playerControl : MonoBehaviour
     private Animator anim;
     private bool _isRunning;
     GameObject EnemyUponMe;
-
+    public bool IsDashing = false;
 
     // Use this for initialization
     void Start()
@@ -63,7 +63,10 @@ public class playerControl : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
-
+    public void OnFinishedDashing()
+    {
+        IsDashing = false;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("enemy"))
@@ -81,9 +84,10 @@ public class playerControl : MonoBehaviour
 
     void Update()
     {
+
         
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             anim.SetTrigger("Hit");
             if (EnemyUponMe != null) { Destroy(EnemyUponMe, .5f); }
@@ -92,7 +96,9 @@ public class playerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S) && _isRunning && isGrounded == true)
         {
             anim.SetTrigger("dash");
+            IsDashing = true;
         }
+       
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {

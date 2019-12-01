@@ -30,11 +30,17 @@ public class Projectile : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            DestroyProjectile();
+            playerControl playerController = other.gameObject.GetComponent<playerControl>();
+            if (playerController != null && !playerController.IsDashing)
+            {
+                DestroyProjectile();
+            }
         }
     }
+
     void DestroyProjectile()
     {
         Destroy(gameObject);
     }
 }
+
